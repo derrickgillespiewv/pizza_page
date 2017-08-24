@@ -40,8 +40,8 @@
 <form method = "post" action = "/confirm">      
 <p><% crust.each do |crust_value| %>
   <%= crust_value %>
-  <input type = "radio" name = "crust_radio" value = "<%= crust_value %>" checked> Yes
-  <input type = "radio" name = "crust_radio" value = "no"> No </p>
+  <input type = "radio" name = "crust_radio[]" value = "<%= crust_value %>" required checked> Yes
+  <input type = "radio" name = "crust_radio[]" value = "no"> No </p>
   <img src = "/img/<%= crust_value %>.jpg">
    <% end %>
  
@@ -49,7 +49,7 @@
 <% sauce_count = 0 %>
      <% sauce.each do |sauce_value| %>
         <p> <%= sauce_value %>
-        <input type = "radio" name = "sauce_radio[<%= sauce_value %>]" value = "<%= sauce_value %>" checked> Yes
+        <input type = "radio" name = "sauce_radio[<%= sauce_value %>]" value = "<%= sauce_value %>" required checked> Yes
         <input type = "radio" name = "sauce_radio[<%= sauce_value %>]" value = "no"> No </p>
         <img src = "/img/<%= sauce_value %>.jpg">
         <% sauce_count += 1%>
@@ -58,7 +58,7 @@
     <% meat_count = 0 %>
      <% meat.each do |meat_value| %>
         <p> <%= meat_value %>
-        <input type = "radio" name = "meat_radio[<%= meat_value %>]" value = "<%= meat_value %>" checked> Yes
+        <input type = "radio" name = "meat_radio[<%= meat_value %>]" value = "<%= meat_value %>" required checked> Yes
         <input type = "radio" name = "meat_radio[<%= meat_value %>]" value = "no"> No </p>
         <img src = "/img/<%= meat_value %>.jpg">
         <% meat_count += 1%>
@@ -67,7 +67,7 @@
     <% veggie_count = 0 %>
     <% veggie.each do |veggie_value| %>
         <p> <%= veggie_value %>
-        <input type = "radio" name = "veggie_radio[<%= veggie_value %>]" value = "<%= veggie_value %>" checked> Yes
+        <input type = "radio" name = "veggie_radio[<%= veggie_value %>]" value = "<%= veggie_value %>" required checked> Yes
         <input type = "radio" name = "veggie_radio[<%= veggie_value %>]" value = "no"> No </p>
         <img src = "/img/<%= veggie_value %>.jpg">
         <% veggie_count += 1%>
@@ -76,14 +76,14 @@
  <% cheese_count = 0 %>
     <% cheese.each do |cheese_value| %>
         <p> <%= cheese_value %>
-        <input type = "radio" name = "cheese_radio[<%= cheese_value %>]" value = "<%= cheese_value %>" checked> Yes
-        <input type = "radio" name = "cheese_radio[<%= cheese_value %>]"" value = "no"> No </p>
+        <input type = "radio" name = "cheese_radio[<%= cheese_value %>]" value = "<%= cheese_value %>" required checked> Yes
+        <input type = "radio" name = "cheese_radio[<%= cheese_value %>]" value = "no"> No </p>
         <img src = "/img/<%= cheese_value %>.jpg">
         <% cheese_count += 1%>
     <% end %>
 
     <center><input type= 'submit' name= 'Confirm'></center>
-
+    <a href="/topping"><button type="button">Start Over</button></a>
 </form>
 </div>
 

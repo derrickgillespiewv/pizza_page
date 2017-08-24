@@ -42,14 +42,15 @@ Your pizza will have
 
 <% crust1.each do |crust_value| %>
   
-    <p> <%= crust_value %> </p>
+    <p> <%= crust_value %> Crust </p>
     <img src = "/img/<%= crust_value %>.jpg">
 <% end %>
 
 <% sauce1.each do |sauce_value| %>
-    <% sauce_value = sauce_value.shift%>
-    
-        <p> <%= sauce_value %> </p>
+    <% sauce_value = sauce_value.shift %>
+
+    		
+        <p> <%= sauce_value %> Sauce </p>
     <img src = "./img/<%= sauce_value %>.jpg">
 <% end %>
 

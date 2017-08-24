@@ -6,7 +6,6 @@ erb :topping
 end 
 
 get '/topping' do
-	"hello"
 erb :topping
 end
 
@@ -50,8 +49,8 @@ post '/confirm' do
     session[:meat_choice] = params[:meat_radio]
     session[:veggie_choice] = params[:veggie_radio]
     session[:cheese_choice] = params[:cheese_radio]
-
-	session[:crust_choice] = Array[session[:crust_choice]]
+p session[:sauce_choice]
+	# session[:crust_choice] = Array[session[:crust_choice]]
     # session[:sauce_choice] = Array[session[:sauce_choice]]
     # session[:meat_choice] = Array[session[:meat_choice]]
     # session[:veggie_choice] = Array[session[:crust_choice]]
