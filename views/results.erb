@@ -1,0 +1,79 @@
+
+<!doctype html>
+<html lang=''>
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="style.css">
+   <link rel= "stylesheet" type="text/css" href="css/style.css">
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   <script src="script.js"></script>
+   <title>Percy's Pies</title>
+</head>
+
+<body>
+
+  <div id='cssmenu'>
+  Percy's Pies
+    </ul>
+    <ul id='words'>
+      <li><a href='/index'>Home</a></li>
+      <li class='active has-sub'><a href='#'>Links</a>
+        <ul>
+         <li class='active'><a href='https://www.google.com/'>Google</a>
+    
+         <li class='active'><a href='http://www.minedminds.org/'>Mined Minds</a>
+
+         <li class='active'><a href='https://stackoverflow.com/'>Stack Overflow</a>
+      </ul>
+    </li>
+    <li><a href='#'>About</a></li>
+    <li><a href='#'>Contact</a></li>
+  </ul>
+</div>
+
+<div id= 'pizza'>
+<h1> Confirm your Selection:</h1>
+
+
+<form method = "post" action = "/results">      
+Your pizza will have
+
+<% crust1.each do |crust_value| %>
+  
+    <p> <%= crust_value %> </p>
+    <img src = "/img/<%= crust_value %>.jpg">
+<% end %>
+
+<% sauce1.each do |sauce_value| %>
+    
+    <p> <%= sauce_value %> </p>
+    <img src = "/img/<%= sauce_value %>.jpg">
+<% end %>
+
+<% meat1.each do |meat_value| %>
+
+    <p> <%= meat_value %> </p>
+    <img src = "/img/<%= meat_value %>.jpg">
+<% end %>
+
+<% veggie1.each do |veggie_value| %>
+   
+    <p> <%= veggie_value %> </p>
+    <img src = "/img/<%= veggie_value %>.jpg">
+<% end %>
+
+<% cheese1.each do |cheese_value| %>
+  
+    <p> <%= cheese_value %> </p>
+    <img src = "/img/<%= cheese_value %>.jpg">
+<% end %>
+
+    <center><input type= 'submit' name= 'Go to Checkout'></center>
+
+</form>
+</div>
+
+</body>
+</html>

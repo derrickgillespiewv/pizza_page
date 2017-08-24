@@ -40,16 +40,26 @@ post '/all_tops' do
 end
 
 get '/confirm' do 
-	p params[:sauce]
-	p params[:crust]
 	erb :confirm, locals: {crust: session[:crust], sauce: session[:sauce], meat: session[:meat], veggie: session[:veggie], cheese: session[:cheese]}
 end 
 
+
 post '/confirm' do
-    session[:crust_choice] = params[:crust_radio] 
-    session[:sauce_choice] = params[:sauce_radio]
+	session[:crust_choice] = params[:crust_radio]
+    session[:sauce_choice] = params[:sauce_radio] 
     session[:meat_choice] = params[:meat_radio]
-    session[:veg_choice] = params[:veg_radio]
+    session[:veggie_choice] = params[:veggie_radio]
     session[:cheese_choice] = params[:cheese_radio]
+
+	session[:crust_choice] = Array[session[:crust_choice]]
+    # session[:sauce_choice] = Array[session[:sauce_choice]]
+    # session[:meat_choice] = Array[session[:meat_choice]]
+    # session[:veggie_choice] = Array[session[:crust_choice]]
+    # session[:cheese_choice] = Array[session[:crust_choice]]
+
     redirect '/results'
+end
+
+get '/results' do
+   	erb :results, locals: {crust1: session[:crust_choice], sauce1: session[:sauce_choice], meat1: session[:meat_choice], veggie1: session[:veggie_choice], cheese1: session[:cheese_choice]}
 end
