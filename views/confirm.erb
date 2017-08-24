@@ -42,6 +42,7 @@
   <%= crust_value %>
   <input type = "radio" name = "crust_radio" value = "yes"> Yes
   <input type = "radio" name = "crust_radio" value = "no"> No </p>
+  <img src = "/img/<%= crust_value %>.jpg">
   <% end %>
  
 
@@ -50,6 +51,7 @@
         <p> <%= sauce_value %>
         <input type = "radio" name = "sauce_radio[<%= sauce_count.to_s %>]" value = "yes"> Yes
         <input type = "radio" name = "sauce_radio{<%= sauce_count.to_s %>]" value = "no"> No </p>
+        <img src = "/img/<%= sauce_value %>.jpg">
         <% sauce_count += 1%>
     <% end %>
 
@@ -58,6 +60,7 @@
         <p> <%= meat_value %>
         <input type = "radio" name = "meat_radio[<%= meat_count.to_s %>]" value = "yes"> Yes
         <input type = "radio" name = "meat_radio[<%= meat_count.to_s %>]" value = "no"> No </p>
+        <img src = "/img/<%= meat_value %>.jpg">
         <% meat_count += 1%>
     <% end %>
 
@@ -66,6 +69,7 @@
         <p> <%= veggie_value %>
         <input type = "radio" name = "veggie_radio[<%= veggie_count.to_s %>]" value = "yes"> Yes
         <input type = "radio" name = "veggie_radio[<%= veggie_count.to_s %>]" value = "no"> No </p>
+        <img src = "/img/<%= veggie_value %>.jpg">
         <% veggie_count += 1%>
     <% end %>
 
@@ -74,6 +78,7 @@
         <p> <%= cheese_value %>
         <input type = "radio" name = "cheese_radio[<%= cheese_count.to_s %>]" value = "yes"> Yes
         <input type = "radio" name = "cheese_radio[<%= cheese_count.to_s %>"] value = "no"> No </p>
+        <img src = "/img/<%= cheese_value %>.jpg">
         <% cheese_count += 1%>
     <% end %>
 
