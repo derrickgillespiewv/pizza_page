@@ -5,14 +5,37 @@ get '/' do
 erb :topping
 end 
 
+get '/topping' do
+	"hello"
+erb :topping
+end
+
 post '/all_tops' do 
 	session[:crust] = params[:crust]
 	session[:sauce] = params[:sauce]
 	session[:meat] = params[:meat]
 	session[:veggie] = params[:veggie]
 	session[:cheese] = params[:cheese]
-	p params[:sauce]
-	p params[:crust]
+	if session[:crust] == nil 
+		session[:crust] = Array["No Crust"] 
+	end 
+	
+	if session[:sauce] == nil 
+		session[:sauce] = Array["No Sauce"] 
+	end 	
+
+	if session[:meat] == nil 
+		session[:meat] = Array["No Meat"] 
+	end 
+
+	if session[:veggie] == nil 
+		session[:veggie] = Array["No Veggie"] 
+	end 
+
+	if session[:cheese] == nil 
+		session[:cheese] = Array["No Cheese"] 
+	end 
+
 	redirect '/confirm'
 end
 

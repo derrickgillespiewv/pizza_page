@@ -34,7 +34,7 @@
 </div>
 
 <div id= 'pizza'>
-<h1> Build your Pizza:</h1>
+<h1> Confirm your Selection:</h1>
 
 
 <form method = "post" action = "/confirm">      
@@ -43,7 +43,8 @@
   <input type = "radio" name = "crust_radio" value = "yes"> Yes
   <input type = "radio" name = "crust_radio" value = "no"> No </p>
   <% end %>
-  
+ 
+
 <% sauce_count = 0 %>
      <% sauce.each do |sauce_value| %>
         <p> <%= sauce_value %>
@@ -76,7 +77,8 @@
         <% cheese_count += 1%>
     <% end %>
 
-    <center><input type='submit'></center>
+    <center><input type= 'submit' name= 'Confirm'></center>
+
 </form>
 </div>
 
