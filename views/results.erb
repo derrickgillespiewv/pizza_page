@@ -47,26 +47,27 @@ Your pizza will have
 <% end %>
 
 <% sauce1.each do |sauce_value| %>
-    <% sauce_value = sauce_value.drop(1)%>
-    <p> <%= sauce_value %> </p>
-    <img src = "/img/<%= sauce_value %>.jpg">
+    <% sauce_value = sauce_value.shift%>
+    
+        <p> <%= sauce_value %> </p>
+    <img src = "./img/<%= sauce_value %>.jpg">
 <% end %>
 
 <% meat1.each do |meat_value| %>
-    <% meat_value = meat_value.drop(1) %>
-    
+    <% meat_value = meat_value.shift %>
+
     <p> <%= meat_value %> </p>
     <img src = "/img/<%= meat_value %>.jpg">
 <% end %>
 
 <% veggie1.each do |veggie_value| %>
-    <% veggie_value = veggie_value.drop(1)%>
+    <% veggie_value = veggie_value.shift%>
     <p> <%= veggie_value %> </p>
     <img src = "/img/<%= veggie_value %>.jpg">
 <% end %>
 
 <% cheese1.each do |cheese_value| %>
-    <% cheese_value = cheese_value.drop(1)%>
+    <% cheese_value = cheese_value.shift%>
     <p> <%= cheese_value %> </p>
     <img src = "/img/<%= cheese_value %>.jpg">
 <% end %>
