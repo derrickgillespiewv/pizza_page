@@ -49,18 +49,25 @@ post '/confirm' do
     session[:meat_choice] = params[:meat_radio]
     session[:veggie_choice] = params[:veggie_radio]
     session[:cheese_choice] = params[:cheese_radio]
-    
-p session[:sauce_choice]
-p session[:sauce_choice].class
-	# session[:crust_choice] = Array[session[:crust_choice]]
-    # session[:sauce_choice] = Array[session[:sauce_choice]]
-    # session[:meat_choice] = Array[session[:meat_choice]]
-    # session[:veggie_choice] = Array[session[:crust_choice]]
-    # session[:cheese_choice] = Array[session[:crust_choice]]
+    session[:price_choice] = params[:price]
+    def crust_price
+    	case session[:crust_choice]
+    	when "Tiny"
+    	when "Medium"
+    	when "Large"
 
+    def price_method
+    	price = price.to_f
+    end 
     redirect '/results'
 end
 
 get '/results' do
+
+
    	erb :results, locals: {crust1: session[:crust_choice], sauce1: session[:sauce_choice], meat1: session[:meat_choice], veggie1: session[:veggie_choice], cheese1: session[:cheese_choice]}
 end
+
+post '/results' do 
+
+end 

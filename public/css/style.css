@@ -251,6 +251,8 @@ html {
 
 #pizza { 
 
+    align-items: all;
+    display: inline-block;
     width: 70%;
     height: 70%;
     position: relative;

@@ -40,47 +40,58 @@
 <form method = "post" action = "/results">      
 Your pizza will have
 
+
+
+
+
+
 <% crust1.each do |crust_value, key| %>
   
     <p> <%= crust_value %> Crust </p>
     <img src = "/img/<%= crust_value %>.jpg">
+ 	<% case crust_value %>
 <% end %>
 
 <% sauce1.each do |sauce_value, key| %>
-
+	<% sauce1_count = 0 %>
     <% if sauce_value == key %>	
      <p> <%= sauce_value %> Sauce </p>
     <img src = "/img/<%= sauce_value %>.jpg">
+    <% sauce1_count += 1%>
     <% end %>
 <% end %>
 
 <% meat1.each do |meat_value, key| %>
-
+	<% meat1_count = 0 %>
 	<% if meat_value == key %> 
     <p> <%= meat_value %> </p>
     <img src = "/img/<%= meat_value %>.jpg">
+    <% meat1_count += 1%>
     <% end %>
 <% end %>
 
 <% veggie1.each do |veggie_value, key| %>
-   	
+   	<% veggie1_count = 0 %>
    	<% if veggie_value == key %> 
     <p> <%= veggie_value %> </p>
     <img src = "/img/<%= veggie_value %>.jpg">
+    <% veggie1_count += 1%>
     <% end %>
 <% end %>
 
 <% cheese1.each do |cheese_value, key| %>
-   
+   	<% cheese1_count = 0 %>
     <% if cheese_value == key %> 
     <p> <%= cheese_value %> </p>
     <img src = "/img/<%= cheese_value %>.jpg">
+    <% cheese1_count += 1%>
     <% end %>
 <% end %>
 	
 
 	<br>
 	<br>
+
   <strong>Delivery</strong><br>
     <input type="radio" name= "delivery" value ="delivery" checked>Delivery<br>
     <input type="radio" name= "delivery" value="pickup">Pickup<br>
