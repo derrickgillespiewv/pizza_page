@@ -50,15 +50,7 @@ post '/confirm' do
     session[:veggie_choice] = params[:veggie_radio]
     session[:cheese_choice] = params[:cheese_radio]
     session[:price_choice] = params[:price]
-    def crust_price
-    	case session[:crust_choice]
-    	when "Tiny"
-    	when "Medium"
-    	when "Large"
-
-    def price_method
-    	price = price.to_f
-    end 
+  
     redirect '/results'
 end
 
