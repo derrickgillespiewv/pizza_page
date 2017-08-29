@@ -48,6 +48,7 @@ Your pizza will have
   	<% if crust_value == "No Crust" %>
   	 <p> <%= crust_value %> </p>
   	<% pizza_tops1 << crust_value %>
+
    	<% elsif crust_value != "No Crust" %>
     <p> <%= crust_value %> Crust </p>
     <img src = "/img/<%= crust_value %>.jpg">
@@ -60,6 +61,7 @@ Your pizza will have
 	<% if sauce_value == "No Sauce" %>
 	<p> <%= sauce_value %> </p>
 	<% pizza_tops1 << sauce_value %>
+
     <% elsif sauce_value == key %>	
      <p> <%= sauce_value %> Sauce </p>
     <img src = "/img/<%= sauce_value %>.jpg">
@@ -117,8 +119,10 @@ Your pizza will have
 	
 	<% sub_total = sub_total[0].to_f + price %>
 	 <%= pizza_tops1 %>
-	<input type= "hidden" name= "pizza_array[]" value= "<%= pizza_tops1 %>">
-	<input type= "hidden" name= "sub_total[]" value= "<%= sub_total %>">
+	
+	<input type= "hidden" name= "big_array1" value= '<%= big_array1 %>'>
+	<input type= "text" name= "pizza_array" value= '<%= pizza_tops1 %>'>
+	<input type= "hidden" name= "sub_total[]" value= '<%= sub_total %>'>
 <center><input type= 'submit' name= 'Continue'></center>
  	
 
