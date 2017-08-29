@@ -99,12 +99,12 @@ post '/results' do
 this_pizza = params[:pizza_array]
 p "#{this_pizza} hello"
 session[:big_pizza_array] << this_pizza
-session[:sub_total_1]= params[:sub_total]
+session[:sub_total]= params[:sub_total]
 redirect '/checkout'
 
 end 
 
 get '/checkout' do 
 
-erb :checkout, locals: {sub_total: session[:sub_total_1], big_array: session[:big_pizza_array]}
+erb :checkout, locals: {sub_total: session[:sub_total], big_array: session[:big_pizza_array]}
 end
