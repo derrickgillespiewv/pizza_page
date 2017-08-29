@@ -49,17 +49,57 @@ post '/confirm' do
     session[:meat_choice] = params[:meat_radio]
     session[:veggie_choice] = params[:veggie_radio]
     session[:cheese_choice] = params[:cheese_radio]
-    session[:price_choice] = params[:price]
-  
+   	price = 0
+    price = price.to_f
+
+    	session[:crust_choice].each do |crust_value, key| 
+    		case crust_value
+    	
+    			when "Tiny"
+    			price += 8
+    		
+
+    			when "Small"
+    			price += 11
+    			
+
+    			when "Medium"
+    			price += 13
+    			
+
+    			when "Large"
+    			price += 14
+    			
+
+    			else
+    			price += 0 
+    			
+    		end
+    	end
+    	session[:price_choice] = params[:price]
+   	price = price.to_f
+ 	session[:price_choice] = price
+ 	p session[:price_choice]
+ 	pizza_tops = []
+ 	session[:pizza_tops]= pizza_tops
+    session[:sub_total]= session[:sub_total] || 0	
     redirect '/results'
 end
 
 get '/results' do
 
 
-   	erb :results, locals: {crust1: session[:crust_choice], sauce1: session[:sauce_choice], meat1: session[:meat_choice], veggie1: session[:veggie_choice], cheese1: session[:cheese_choice]}
+   	erb :results, locals: {pizza_tops1: session[:pizza_tops], crust1: session[:crust_choice], sauce1: session[:sauce_choice], meat1: session[:meat_choice], veggie1: session[:veggie_choice], cheese1: session[:cheese_choice], price: session[:price_choice], sub_total: session[:sub_total]}
 end
 
 post '/results' do 
 
+session[:sub_total]= params[:sub_total]
+redirect '/checkout'
+
 end 
+
+get '/checkout' do 
+
+erb :checkout, locals: {sub_total: session[:sub_total]}
+end

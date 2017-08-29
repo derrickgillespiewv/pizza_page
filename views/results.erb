@@ -40,69 +40,87 @@
 <form method = "post" action = "/results">      
 Your pizza will have
 
-
-
+<% price.to_s.to_f %>
 
 
 
 <% crust1.each do |crust_value, key| %>
-  
+  	<% if crust_value == "No Crust" %>
+  	 <p> <%= crust_value %> </p>
+  	<% pizza_tops1 << crust_value %>
+   	<% elsif crust_value != "No Crust" %>
     <p> <%= crust_value %> Crust </p>
     <img src = "/img/<%= crust_value %>.jpg">
- 	
+    <% pizza_tops1 << crust_value %>
+ 	<% end %>
 <% end %>
 
 <% sauce1.each do |sauce_value, key| %>
-
-    <% if sauce_value == key %>	
+	
+	<% if sauce_value == "No Sauce" %>
+	<p> <%= sauce_value %> </p>
+	<% pizza_tops1 << sauce_value %>
+    <% elsif sauce_value == key %>	
      <p> <%= sauce_value %> Sauce </p>
     <img src = "/img/<%= sauce_value %>.jpg">
-    
+    <% price += 1 %>
+    <% p price %>
+    <% pizza_tops1 << sauce_value %>
     <% end %>
 <% end %>
 
 <% meat1.each do |meat_value, key| %>
 
-	<% if meat_value == key %> 
+	<% if meat_value == "No Meat" %>
+	<p> <%= meat_value %> </p>
+	<% pizza_tops1 << meat_value %>
+	<% elsif meat_value == key %> 
     <p> <%= meat_value %> </p>
     <img src = "/img/<%= meat_value %>.jpg">
-    
+    <% price += 2 %>
+    <% p price %>
+    <% pizza_tops1 << meat_value %>
     <% end %>
 <% end %>
 
 <% veggie1.each do |veggie_value, key| %>
- =
-   	<% if veggie_value == key %> 
+	<% if veggie_value == "No Veggie" %>
+	<p> <%= veggie_value %> </p>
+	<% pizza_tops1 << veggie_value %>
+   	<% elsif veggie_value == key %> 
     <p> <%= veggie_value %> </p>
     <img src = "/img/<%= veggie_value %>.jpg">
-    
+    <% price += 1.5 %>
+    <% p price %> 
+    <% pizza_tops1 << veggie_value %>
     <% end %>
 <% end %>
 
 <% cheese1.each do |cheese_value, key| %>
-   	
-    <% if cheese_value == key %> 
+   	<% if cheese_value == "No Cheese" %>
+   	<p> <%= cheese_value %> </p>
+	<% pizza_tops1 << cheese_value %>
+    <% elsif cheese_value == key %> 
     <p> <%= cheese_value %> </p>
     <img src = "/img/<%= cheese_value %>.jpg">
-  
+  	<% price += 1 %>
+  	<% p price %>
+  	<% pizza_tops1 << cheese_value %>
     <% end %>
 <% end %>
 	
-
+	
 	<br>
 	<br>
-
-  <strong>Delivery</strong><br>
-    <input type="radio" name= "delivery" value ="delivery" checked>Delivery<br>
-    <input type="radio" name= "delivery" value="pickup">Pickup<br>
-    <input type="radio" name = "delivery" value="dinein">Dine-in<br>
-<br>
-<strong>Name on the order</strong><br>
-    <input type="text" placeholder="Last name" name="lastname" required><br>
-<strong>If delivery please enter address to be delivered to.</strong><br>
-    <input type="text" placeholder="Address" name="street"><br>
-    <input type="text" placeholder="City" name="city"><br>
-    <center><input type="submit" value="Place Order"></center>
+	<BR>This pizza costs $<%= price.to_f %></BR> 
+	<input type= "hidden" name= "current[]" value= "<%= price %>"> 
+	
+	<% sub_total = sub_total[0].to_f + price %>
+	 <%= pizza_tops1 %>
+	<input type= "hidden" name= "pizza_array[]" value= "<%= pizza_tops1 %>">
+	<input type= "hidden" name= "sub_total[]" value= "<%= sub_total %>">
+<center><input type= 'submit' name= 'Continue'></center>
+ 	
 
 </form>
 </div>
